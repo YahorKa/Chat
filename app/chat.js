@@ -4,6 +4,7 @@ var message;
 var temp;
 var messages=[];
 var json;
+var flag=false;
 var name = prompt('введите имя' )
 const socket = new WebSocket('ws://localhost:8081');
 // обработчик проинформирует в консоль когда соединение установится
@@ -46,7 +47,7 @@ input.addEventListener("keypress",function(event){
  if(event.key=="Enter"){send();render();
  event.preventDefault()}}
 );
-var flag=false;
+
 
 function print(messageFromServer) {
 messages.push(JSON.parse(messageFromServer));
@@ -65,18 +66,21 @@ date=new Date();
 var time= " "+date.getHours()+" : "+date.getMinutes()+" ";
 messages.push({'name':name,  'date': time, 'message': input.value});
 console.log(messages);
+
 // Send to Server
  messages.forEach((item,i) => {
   message=item.message;
-  temp=item.date+" "+"("+item.name+")";
-  });
+  temp=item.date+" "+"("+item.name+")"});
   json = JSON.stringify({'name':name,  'date': time, 'message': input.value})
   socket.send(json);
   input.value="";
+  //Обработчик прочтения сообщения клиентом
+
  };
 
 render=()=>{
 if (message!=""){
+
   var ul =document.createElement("ul");
   var li=document.createElement("li");
   var span = document.createElement("span");
@@ -93,13 +97,18 @@ if (message!=""){
   span1.classList.add("dat");
     if (flag==0){
     rotationMes.classList.add("chat");
+    window.addEventListener('focus', () => {console.log('focusON');
+    rotationMes.classList.add("chat1");
+
+    })
     tail.classList.add("tail1");
     li.classList.add ('li1')}
     else {
     rotationMes.classList.add("chat2");
-    tail.classList.add("tail2")
+    tail.classList.add("tail2");
     li.classList.add ('li2');
     }
+
   ul.appendChild(li);
   var div=document.getElementsByClassName("chat-msgs")[0];
 

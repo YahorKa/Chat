@@ -1,6 +1,7 @@
 body{
 /* background: linear-gradient(45deg, #EECFBA, #C5DDE8); */
-background: linear-gradient(45deg, #21201f, #202425);
+background: linear-gradient(45deg, #21201f, #58a2b5);
+/* linear-gradient(45deg, #21201f, #58a2b5); */
 }
 .li1{
   list-style: none;
@@ -31,7 +32,7 @@ box-shadow: inset 1px 1px 1px 1px #3c3939,
  inset -1px -1px 1px 1px #383333;
 padding: 20px;
 }
-.chat {
+.chat ,.chat1{
 background-color: #403c3c;;
 font-size: 16px;
 padding: 10px;
@@ -43,6 +44,13 @@ width: auto;
 -webkit-border-radius: 15px;
 color:white;
 text-align: left;
+}
+.chat1::after {
+  width: 0;
+  height: 0;
+  font-size: 15px;
+  content: ' \2713';
+  color:white;
 }
 .tail1 {
   width: 0;
@@ -61,7 +69,6 @@ text-align: left;
   background-color: #368dda;
   font-size: 16px;
   padding: 10px;
-  margin: 30PX;
   position: relative;
   -webkit-border-radius: 15px;
   display: inline-block;
@@ -69,8 +76,8 @@ text-align: left;
   /* max-width: 300px; */
   color:white;
   text-align: left;
-
 }
+
 .tail2 {
   width: 0;
       height: 0;
@@ -83,8 +90,9 @@ text-align: left;
       border-bottom: 19px solid transparent;
       color: #368dda;
 }
-
 #input{
+  background-color: silver;
+  /* background-color: cadetblue; */
   -webkit-border-radius: 50px;
   border-style: none;
   box-shadow: inset 1px 1px 1px 1px #888888,
@@ -100,7 +108,8 @@ text-align: left;
   left: 18%;
 }
 .dat{
-  font-size: 14px;
+  font-size: 13px;
+  color:darkgray;
 }
 .button{
 background: linear-gradient(to top left, #333738, #dad3d5);

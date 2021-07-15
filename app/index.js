@@ -35,8 +35,6 @@ let number = id;
 id +=1;
 clients[number] = wsClient;
 console.log('Новый клиент : [id] ' +number + ' Всего клиентов : '+ Object.keys(clients).length);
-
-// wsClient.send('Новый клиент [id]' +Object.keys(clients));
 wsClient.on('message',function(message){echoToAll(message);
 console.log(message);
 })
